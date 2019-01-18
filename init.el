@@ -2,28 +2,7 @@
 (setq make-backup-files nil) ; stop creating backup~ files
 (setq auto-save-default nil) ; stop creating #autosave# files
 
-;; UI
-;;; deactivate ui chrome
-(scroll-bar-mode -1)
-(tool-bar-mode   -1)
-(tooltip-mode    -1)
-(menu-bar-mode   -1)
-
-;;; typography
-(add-to-list 'default-frame-alist '(font . "Cartograph Mono CF-14"))
-(setq-default line-spacing 18)
-
-;;; titlebar
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(setq ns-use-proxy-icon nil)
-(setq frame-title-format nil)
-
-;;; frame
-(add-to-list 'default-frame-alist '(height . 24))
-(add-to-list 'default-frame-alist '(width . 80))
-
 ;; Package Manager
-
 ;;; set sources
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -37,6 +16,35 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
+
+
+;; UI
+;;; deactivate ui chrome
+(scroll-bar-mode -1)
+(tool-bar-mode   -1)
+(tooltip-mode    -1)
+(menu-bar-mode   -1)
+;;; deactivate bells, audio or visual
+(setq ring-bell-function 'ignore)
+
+;;; typography
+(add-to-list 'default-frame-alist '(font . "Cartograph Mono CF -14"))
+(setq-default line-spacing 16)
+
+;;; titlebar
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(setq ns-use-proxy-icon nil)
+(setq frame-title-format nil)
+
+;;; frame
+(add-to-list 'default-frame-alist '(height . 24))
+(add-to-list 'default-frame-alist '(width . 80))
+
+;;; theme
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-one t))
 
 ;; Keybindings
 ;;; Evil mode setup
