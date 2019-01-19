@@ -72,20 +72,6 @@
     (setq frame-title-format nil)
    #+END_SRC
 
-** Typography
-   
-   I love the Cartograph font, well worth its money. Also, some more line spacing makes things far more readable:
-   #+BEGIN_SRC emacs-lisp :tangle yes
-    (add-to-list 'default-frame-alist '(font . "Cartograph Mono CF-14"))
-    (setq-default line-spacing 16)
-   #+END_SRC
-   
-   Wrap words softly but will kill-line the whole actual line:
-   #+BEGIN_SRC emacs-lisp :tangle yes
-    (global-visual-line-mode t)
-    (setq-default word-wrap t)
-   #+END_SRC
-
 ** Frame
 
    Setting some default frame size that acts more like a CLI buffer:
@@ -98,9 +84,38 @@
 
    #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package doom-themes
+    :ensure t)
+    
+    (use-package poet-theme
     :ensure t
-    :config
-    (load-theme 'doom-Iosvkem t))
+    :config (load-theme 'poet-dark-monochrome t))
+   #+END_SRC
+
+** Typography
+   
+   I love the Cartograph font, well worth its money. Also, some more line spacing makes things far more readable:
+   #+BEGIN_SRC emacs-lisp :tangle yes
+    (add-to-list 'default-frame-alist '(font . "Cartograph Mono CF-14"))
+    (setq-default line-spacing 16)
+   #+END_SRC
+   
+   #+BEGIN_SRC emacs-lisp :tangle yes
+    (set-face-attribute 'default nil :family "Cartograph Mono CF" :height 140)
+    (set-face-attribute 'fixed-pitch nil :family "Cartograph Mono CF" :weight 'light :height 140)
+    (set-face-attribute 'variable-pitch nil :family "Avenir Next LT Pro" :weight 'semi-bold :height 200)
+   #+END_SRC
+   
+   Wrap words softly but will kill-line the whole actual line:
+   #+BEGIN_SRC emacs-lisp :tangle yes
+    (global-visual-line-mode t)
+    (setq-default word-wrap t)
+   #+END_SRC
+   
+   Variable pitch mode will help rendering mixed fonts
+   #+BEGIN_SRC emacs-lisp :tangle yes
+    (add-hook 'text-mode-hook
+		(lambda ()
+		    (variable-pitch-mode 1))) 
    #+END_SRC
 
 ** Modeline
