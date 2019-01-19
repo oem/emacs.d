@@ -1,5 +1,5 @@
 #+AUTHOR: oem
-#+TITLE: Emacs Configuration
+#+TITLE: My Emacs Configuration
 
 * Emacs Org Configuration
 
@@ -82,7 +82,8 @@
    
    Wrap words softly but will kill-line the whole actual line:
    #+BEGIN_SRC emacs-lisp :tangle yes
-     (setq-default word-wrap t)
+    (global-visual-line-mode t)
+    (setq-default word-wrap t)
    #+END_SRC
 
 ** Frame
