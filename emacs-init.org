@@ -218,7 +218,7 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     :states '(normal visual insert emacs)
     :prefix "SPC"
     :non-normal-prefix "M-SPC"
-    ;; "/"   '(counsel-rg :which-key "ripgrep") ; You'll need counsel package for this
+    "/"   '(deadgrep :which-key "ripgrep") ; You'll need counsel package for this
     "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
     "SPC" '(helm-M-x :which-key "M-x")
     "ff"  '(helm-find-files :which-key "find files")
