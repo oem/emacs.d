@@ -47,6 +47,14 @@ Install packages if they are not installed yet:
     (require 'use-package)
 #+END_SRC
 
+Load path from shell (this is necessary when starting emacs as GUI on Mac OS):
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package exec-path-from-shell
+    :ensure t
+    :config
+    (exec-path-from-shell-initialize))
+#+END_SRC
+
 * UI
 ** Cleaning up unnecessary things
 
@@ -152,6 +160,13 @@ Sets fonts for fixed and variable pitch:
     (helm-mode 1))
 #+END_SRC
 
+** Ripgrep integration
+
+I could not make helm-ag work for me well so far (too slow with sub searches and didn't open files), so I am going with deadgrep instead:
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package deadgrep :ensure t)
+#+END_SRC
+
 * Keybinds
 ** Discoverable with which key
 
@@ -170,6 +185,9 @@ Sets fonts for fixed and variable pitch:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package evil
     :ensure t
+    :init
+    (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+    (setq evil-want-keybinding nil)
     :config
     (evil-mode 1))
 
@@ -181,7 +199,18 @@ Sets fonts for fixed and variable pitch:
     (evil-escape-mode 1))
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package evil-collection
+    :after evil
+    :ensure t
+    :config
+    (evil-collection-init))
+#+END_SRC
+
 ** Keybindings with general
+   
+** TODO add a better keybind to toggle between two buffers
+** TODO make a jj evil escape that is not interfering in non insert modes
 
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package general
