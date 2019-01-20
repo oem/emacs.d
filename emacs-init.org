@@ -205,6 +205,8 @@ Install packages if they are not installed yet:
     "w/"  '(split-window-right :which-key "split right")
     "w-"  '(split-window-below :which-key "split bottom")
     "wx"  '(delete-window :which-key "delete window")
+    ;; Org Mode
+    "oa" '(org-agenda :which-key "org-agenda")
     ;; Others
     "at"  '(ansi-term :which-key "open terminal")
     ))
@@ -219,4 +221,22 @@ Show nicer org bullets:
     :config
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
-  
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq org-agenda-files (list "~/org" "~/.emacs.d/emacs-init.org"))
+#+END_SRC
+
+** TODO add org-drill
+** TODO setup archiving of done tasks
+** TODO set up some better keybinds for orga things
+* Languages
+** TODO add error checking
+** TODO add autoformatting
+** TODO add autocompletion
+** TODO add magit
+** Python
+*** TODO add  error checking and linting/autocorrecting
+** Ruby
+*** TODO add error checking
+*** TODO add formatting
+
