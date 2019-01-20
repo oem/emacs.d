@@ -209,9 +209,6 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
 
 ** Keybindings with general
    
-** TODO add a better keybind to toggle between two buffers
-** TODO make a jj evil escape that is not interfering in non insert modes
-
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package general
     :ensure t
@@ -251,20 +248,8 @@ Show nicer org bullets:
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-    (setq org-agenda-files (list "~/org" "~/.emacs.d/emacs-init.org"))
+    (setq org-agenda-files (list "~/org"))
 #+END_SRC
 
-** TODO add org-drill
-** TODO setup archiving of done tasks
-** TODO set up some better keybinds for orga things
 * Languages
-** TODO add error checking
-** TODO add autoformatting
-** TODO add autocompletion
-** TODO add magit
-** Python
-*** TODO add  error checking and linting/autocorrecting
-** Ruby
-*** TODO add error checking
-*** TODO add formatting
 
