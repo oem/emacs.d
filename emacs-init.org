@@ -50,83 +50,82 @@ Install packages if they are not installed yet:
 * UI
 ** Cleaning up unnecessary things
 
-   I like to keep the appearance as focused on the actual content as possible:
-   #+BEGIN_SRC emacs-lisp :tangle yes
+I like to keep the appearance as focused on the actual content as possible:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (scroll-bar-mode -1)
     (tool-bar-mode   -1)
     (tooltip-mode    -1)
     (menu-bar-mode   -1)
-   #+END_SRC
+#+END_SRC
 
-   I don't really need the audio or visual bell feedback:
-   #+BEGIN_SRC emacs-lisp :tangle yes
+I don't really need the audio or visual bell feedback:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (setq ring-bell-function 'ignore)
-   #+END_SRC
+#+END_SRC
 
 ** Titlebar
 
-   I prefer a transparent titlebar without the file icons and titles:
-   #+BEGIN_SRC emacs-lisp :tangle yes
+I prefer a transparent titlebar without the file icons and titles:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
     (setq ns-use-proxy-icon nil)
     (setq frame-title-format nil)
-   #+END_SRC
+#+END_SRC
 
 ** Frame
 
-   Setting some default frame size that acts more like a CLI buffer:
-   #+BEGIN_SRC emacs-lisp :tangle yes
+Setting some default frame size that acts more like a CLI buffer:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (add-to-list 'default-frame-alist '(height . 24))
     (add-to-list 'default-frame-alist '(width . 80))
-   #+END_SRC
+#+END_SRC
 
 ** Theme
 
-   #+BEGIN_SRC emacs-lisp :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle yes
     (use-package doom-themes
     :ensure t)
 
     (use-package poet-theme
     :ensure t
     :config (load-theme 'poet-dark-monochrome t))
-   #+END_SRC
+#+END_SRC
 
 ** Typography
 
-   I love the Cartograph font, well worth its money. Also, some more line spacing makes things far more readable:
-   #+BEGIN_SRC emacs-lisp :tangle yes
+I love the Cartograph font, well worth its money. Also, some more line spacing makes things far more readable:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (add-to-list 'default-frame-alist '(font . "Cartograph Mono CF-14"))
     (setq-default line-spacing 16)
-   #+END_SRC
+#+END_SRC
 
-   Wrap words softly but will kill-line the whole actual line:
-   #+BEGIN_SRC emacs-lisp :tangle yes
+Wrap words softly but will kill-line the whole actual line:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (global-visual-line-mode t)
     (setq-default word-wrap t)
-   #+END_SRC
+#+END_SRC
 
-   Variable pitch mode will help rendering mixed fonts
-   #+BEGIN_SRC emacs-lisp :tangle yes
+Variable pitch mode will help rendering mixed fonts
+#+BEGIN_SRC emacs-lisp :tangle yes
     (add-hook 'text-mode-hook
 		(lambda ()
 		    (variable-pitch-mode 1)))
-   #+END_SRC
+#+END_SRC
 
-   Sets fonts for fixed and variable pitch:
-   #+BEGIN_SRC emacs-lisp :tangle yes
+Sets fonts for fixed and variable pitch:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (set-face-attribute 'default nil :family "Cartograph Mono CF" :height 140)
     (set-face-attribute 'fixed-pitch nil :family "Cartograph Mono CF" :weight 'light :height 140)
     (set-face-attribute 'variable-pitch nil :family "Avenir Next LT Pro" :weight 'bold :height 160)
-   #+END_SRC
+#+END_SRC
 
 ** Modeline
 
-   #+BEGIN_SRC emacs-lisp :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle yes
     (use-package doom-modeline
 	:ensure t
 	:hook (after-init . doom-modeline-mode))
-    (setq doom-modeline-height 35)
-   #+END_SRC
+#+END_SRC
 
 * Fuzzy
 ** Helm
