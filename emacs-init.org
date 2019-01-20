@@ -3,49 +3,49 @@
 
 * Emacs Org Configuration
 
-  This file is tangled using =org-babel-load-file=. What this does is
-  generate a =emacs-init.el= from the =emacs-lisp= source blocks.
+This file is tangled using =org-babel-load-file=. What this does is
+generate a =emacs-init.el= from the =emacs-lisp= source blocks.
 
 * Sane Defaults
 
-   I personally don't need backups and find them quite cluttery.
-   #+BEGIN_SRC emacs-lisp :tangle yes
+I personally don't need backups and find them quite cluttery.
+#+BEGIN_SRC emacs-lisp :tangle yes
     (setq make-backup-files nil) ; stop creating backup~ files
     (setq auto-save-default nil) ; stop creating #autosave# files
-   #+END_SRC
-   
-   Disable the startup screen.
-   #+BEGIN_SRC emacs-lisp :tangle yes
-     (setq inhibit-startup-screen t)
-   #+END_SRC
-   
-   The inbuild emacs feature to show matching paranthesis is great!
-   #+BEGIN_SRC emacs-lisp :tangle yes
+#+END_SRC
+
+Disable the startup screen.
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq inhibit-startup-screen t)
+#+END_SRC
+
+The inbuild emacs feature to show matching paranthesis is great!
+#+BEGIN_SRC emacs-lisp :tangle yes
     (setq show-paren-delay 0)
     (show-paren-mode 1)
-   #+END_SRC
+#+END_SRC
 
 * Package Manager
 ** Sources
 
-   #+BEGIN_SRC emacs-lisp :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle yes
     (require 'package)
     (setq package-enable-at-startup nil)
     (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
 			    ("gnu"   . "http://elpa.gnu.org/packages/")
 			    ("melpa" . "https://melpa.org/packages/")))
     (package-initialize)
-   #+END_SRC
+#+END_SRC
 
 ** Bootstrapping
-   
-  Install packages if they are not installed yet:
-  #+BEGIN_SRC emacs-lisp :tangle yes
+
+Install packages if they are not installed yet:
+#+BEGIN_SRC emacs-lisp :tangle yes
     (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
     (require 'use-package)
-  #+END_SRC
+#+END_SRC
 
 * UI
 ** Cleaning up unnecessary things
@@ -57,14 +57,14 @@
     (tooltip-mode    -1)
     (menu-bar-mode   -1)
    #+END_SRC
-   
+
    I don't really need the audio or visual bell feedback:
    #+BEGIN_SRC emacs-lisp :tangle yes
     (setq ring-bell-function 'ignore)
    #+END_SRC
 
 ** Titlebar
-   
+
    I prefer a transparent titlebar without the file icons and titles:
    #+BEGIN_SRC emacs-lisp :tangle yes
     (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
@@ -85,33 +85,33 @@
    #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package doom-themes
     :ensure t)
-    
+
     (use-package poet-theme
     :ensure t
     :config (load-theme 'poet-dark-monochrome t))
    #+END_SRC
 
 ** Typography
-   
+
    I love the Cartograph font, well worth its money. Also, some more line spacing makes things far more readable:
    #+BEGIN_SRC emacs-lisp :tangle yes
     (add-to-list 'default-frame-alist '(font . "Cartograph Mono CF-14"))
     (setq-default line-spacing 16)
    #+END_SRC
-   
+
    Wrap words softly but will kill-line the whole actual line:
    #+BEGIN_SRC emacs-lisp :tangle yes
     (global-visual-line-mode t)
     (setq-default word-wrap t)
    #+END_SRC
-   
+
    Variable pitch mode will help rendering mixed fonts
    #+BEGIN_SRC emacs-lisp :tangle yes
     (add-hook 'text-mode-hook
 		(lambda ()
-		    (variable-pitch-mode 1))) 
+		    (variable-pitch-mode 1)))
    #+END_SRC
-   
+
    Sets fonts for fixed and variable pitch:
    #+BEGIN_SRC emacs-lisp :tangle yes
     (set-face-attribute 'default nil :family "Cartograph Mono CF" :height 140)
@@ -120,7 +120,7 @@
    #+END_SRC
 
 ** Modeline
-   
+
    #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package doom-modeline
 	:ensure t
@@ -130,8 +130,8 @@
 
 * Fuzzy
 ** Helm
-   
-   #+BEGIN_SRC emacs-lisp :tangle yes
+
+#+BEGIN_SRC emacs-lisp :tangle yes
     (use-package helm
     :ensure t
     :init
@@ -151,12 +151,12 @@
     helm-autoresize-min-height 20)
     :config
     (helm-mode 1))
-   #+END_SRC
+#+END_SRC
 
 * Keybinds
 ** Discoverable with which key
 
-   #+BEGIN_SRC emacs-lisp :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle yes
     (use-package which-key
     :ensure t
     :init
@@ -164,11 +164,11 @@
     (setq which-key-prefix-prefix "+")
     :config
     (which-key-mode 1))
-   #+END_SRC
+#+END_SRC
 
 ** Evil Mode
 
-   #+BEGIN_SRC emacs-lisp :tangle yes
+#+BEGIN_SRC emacs-lisp :tangle yes
     (use-package evil
     :ensure t
     :config
@@ -180,10 +180,11 @@
     (setq-default evil-escape-key-sequence "jk")
     :config
     (evil-escape-mode 1))
-   #+END_SRC
+#+END_SRC
+
 ** Keybindings with general
-  
-   #+BEGIN_SRC emacs-lisp :tangle yes
+
+#+BEGIN_SRC emacs-lisp :tangle yes
     (use-package general
     :ensure t
     :config (general-define-key
@@ -207,5 +208,15 @@
     ;; Others
     "at"  '(ansi-term :which-key "open terminal")
     ))
-   #+END_SRC
+#+END_SRC
 
+* Org Mode
+  
+Show nicer org bullets:
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+#+END_SRC
+  
