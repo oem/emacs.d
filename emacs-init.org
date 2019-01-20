@@ -190,13 +190,6 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     (setq evil-want-keybinding nil)
     :config
     (evil-mode 1))
-
-    (use-package evil-escape
-    :ensure t
-    :init
-    (setq-default evil-escape-key-sequence "jk")
-    :config
-    (evil-escape-mode 1))
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -205,6 +198,15 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     :ensure t
     :config
     (evil-collection-init))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+(use-package evil-escape
+    :ensure t
+    :config
+    (evil-escape-mode 1))
+#+END_SRC
+
 #+END_SRC
 
 ** Keybindings with general
