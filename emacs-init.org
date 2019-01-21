@@ -261,7 +261,7 @@ capturing todos and links:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (setq org-capture-templates
 	'(("t" "Task" entry
-	    (file+headline "~/org/inbox.org" "Inbox")
+	    (file+headline "~/org/inbox.org" "Tasks")
 	    "* TODO %?\n %i\n")
 	    ("l" "Link" plain
 	    (file+headline "~/org/inbox.org" "Bookmarks")
