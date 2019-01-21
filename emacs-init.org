@@ -136,6 +136,7 @@ Sets fonts for fixed and variable pitch:
     (use-package doom-modeline
 	:ensure t
 	:hook (after-init . doom-modeline-mode))
+    (setq doom-modeline-height 40)
 #+END_SRC
 
 * Fuzzy
@@ -275,6 +276,8 @@ capturing todos and links:
 	'(("t" "Task" entry
 	    (file+headline "~/org/inbox.org" "Tasks")
 	    "* TODO %?\n %i\n")
+	    ("n" "Next Task" entry (file+headline "~/org/inbox.org" "Tasks")
+	    "** TODO %? \nDEADLINE: %t") 
 	    ("l" "Link" plain
 	    (file+headline "~/org/inbox.org" "Bookmarks")
 	    "%?\n %i\n")))
