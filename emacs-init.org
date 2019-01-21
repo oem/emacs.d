@@ -246,6 +246,18 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
 #+END_SRC
 
 * Org Mode
+
+Tell org mode where to find the org files. This is being used for the agenda and refiling.
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq org-agenda-files (list "~/org" "~/org/work"))
+#+END_SRC
+
+Track state changes with timestamps and/or notes:
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq org-log-done 'time)
+#+END_SRC
+
+*** org bullets
   
 Show nicer org bullets:
 #+BEGIN_SRC emacs-lisp :tangle yes
