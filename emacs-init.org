@@ -3,8 +3,8 @@
 
 * Emacs Org Configuration
 
-This file is tangled using =org-babel-load-file=. What this does is
-generate a =emacs-init.el= from the =emacs-lisp= source blocks.
+This file is tangled using =org-babel-load-file=. It generates
+ a =emacs-init.el= file from the =emacs-lisp= source blocks.
 
 * Sane Defaults
 
@@ -171,7 +171,7 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
 #+END_SRC
 
 * Keybinds
-** Discoverable with which key
+** Discoverable with which-key
 
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package which-key
@@ -221,7 +221,7 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     :states '(normal visual insert emacs)
     :prefix "SPC"
     :non-normal-prefix "M-SPC"
-    "/"   '(deadgrep :which-key "ripgrep") ; You'll need counsel package for this
+    "/"   '(deadgrep :which-key "ripgrep")
     "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
     "SPC" '(helm-M-x :which-key "M-x")
     "ff"  '(helm-find-files :which-key "find files")
@@ -269,4 +269,3 @@ capturing todos and links:
 #+END_SRC
 
 * Languages
-
