@@ -94,6 +94,9 @@ Setting some default frame size that acts more like a CLI buffer:
     (use-package doom-themes
     :ensure t)
 
+    (use-package flatui-theme
+    :ensure t)
+    
     (use-package poet-theme
     :ensure t
     :config (load-theme 'poet-dark-monochrome t))
@@ -234,6 +237,7 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     "wx"  '(delete-window :which-key "delete window")
     ;; Org Mode
     "oa" '(org-agenda :which-key "org-agenda")
+    "oc" '(org-capture :which-ley "org-capture")
     ;; Others
     "at"  '(ansi-term :which-key "open terminal")
     ))
@@ -251,6 +255,17 @@ Show nicer org bullets:
 
 #+BEGIN_SRC emacs-lisp :tangle yes
     (setq org-agenda-files (list "~/org"))
+#+END_SRC
+
+capturing todos and links:
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq org-capture-templates
+	'(("t" "Task" entry
+	    (file+headline "~/org/inbox.org" "Inbox")
+	    "* TODO %?\n %i\n")
+	    ("l" "Link" plain
+	    (file+headline "~/org/inbox.org" "Bookmarks")
+	    "%?\n %i\n")))
 #+END_SRC
 
 * Languages
