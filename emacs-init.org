@@ -1,7 +1,7 @@
 #+AUTHOR: oem
 #+TITLE: My Emacs Configuration
 
-* Emacs Org Configuration
+* Emacs Org
 
 This file is tangled using =org-babel-load-file=. It generates
  a =emacs-init.el= file from the =emacs-lisp= source blocks.
@@ -255,9 +255,7 @@ Show nicer org bullets:
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
 
-#+BEGIN_SRC emacs-lisp :tangle yes
-    (setq org-agenda-files (list "~/org"))
-#+END_SRC
+*** org-capture
 
 capturing todos and links:
 #+BEGIN_SRC emacs-lisp :tangle yes
