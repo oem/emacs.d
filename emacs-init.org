@@ -280,6 +280,14 @@ capturing todos and links:
 	    "%?\n %i\n")))
 #+END_SRC
 
+*** org-refile
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq org-refile-targets '((org-agenda-files :maxlevel . 9)))
+    (setq org-refile-use-outline-path 'file)
+    (setq org-outline-path-complete-in-steps nil)
+#+END_SRC 
+
 * Languages
 ** Version control
    
