@@ -294,7 +294,7 @@ capturing todos and links:
 * Languages
 ** Version control
    
-Magit is just an excellent git frontend (some even consider it one of the killer features of emacs):
+Magit is an excellent git frontend (some even consider it one of the killer features of emacs):
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package magit :ensure t)
     (use-package evil-magit :ensure t)
