@@ -281,6 +281,11 @@ Track state changes with timestamps and/or notes:
     (setq org-log-done 'time)
 #+END_SRC
 
+Make agenda view not remove my split windows
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq org-agenda-window-setup 'current-window)
+#+END_SRC
+
 *** org bullets
   
 Show nicer org bullets:
