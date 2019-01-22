@@ -220,14 +220,6 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
 #+END_SRC
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-    (use-package evil-collection
-    :after evil
-    :ensure t
-    :config
-    (evil-collection-init))
-#+END_SRC
-
-#+BEGIN_SRC emacs-lisp :tangle yes
 (use-package evil-escape
     :ensure t
     :config
