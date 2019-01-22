@@ -23,7 +23,7 @@
  '(global-company-mode t)
  '(package-selected-packages
    (quote
-    (magit exec-path-from-shell which-key evil use-package))))
+    (flycheck magit exec-path-from-shell which-key evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
