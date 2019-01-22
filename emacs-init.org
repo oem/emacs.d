@@ -96,7 +96,7 @@ Setting some default frame size that acts more like a CLI buffer:
 
     (use-package flatui-theme
     :ensure t)
-    
+
     (use-package poet-theme
     :ensure t
     :config (load-theme 'poet-dark-monochrome t))
@@ -229,7 +229,7 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
 #+END_SRC
 
 ** Keybindings with general
-   
+
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package general
     :ensure t
@@ -289,7 +289,7 @@ Remove the highlight from checkboxes
 #+END_SRC
 
 *** org bullets
-  
+
 Show nicer org bullets:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package org-bullets
@@ -307,7 +307,7 @@ capturing todos and links:
 	    (file+headline "~/org/inbox.org" "Tasks")
 	    "* TODO %?\n %i\n")
 	    ("n" "Next Task" entry (file+headline "~/org/inbox.org" "Tasks")
-	    "** TODO %? \nDEADLINE: %t") 
+	    "** TODO %? \nDEADLINE: %t")
 	    ("l" "Link" plain
 	    (file+headline "~/org/inbox.org" "Bookmarks")
 	    "%?\n %i\n")))
@@ -320,11 +320,11 @@ capturing todos and links:
     (setq org-refile-use-outline-path 'file)
     (setq org-outline-path-complete-in-steps nil)
     (setq org-refile-allow-creating-parent-nodes 'confirm)
-#+END_SRC 
+#+END_SRC
 
 * Languages
 ** Version control
-   
+
 Magit is an excellent git frontend (some even consider it one of the killer features of emacs):
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package magit
@@ -348,3 +348,11 @@ I also like to see the changes in the gutter
     (global-git-gutter-mode))
 #+END_SRC
 
+** Autocompletion
+
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package company
+    :ensure t
+    :config
+    (add-hook 'after-init-hook 'global-company-mode))
+#+END_SRC
