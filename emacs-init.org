@@ -291,6 +291,11 @@ Follow links with RET
     (setq org-return-follows-link t)
 #+END_SRC
 
+Remove the highlight from checkboxes
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (custom-set-faces '(org-checkbox ((t (:box nil :foreground nil :inherit org-todo :background nil)))))
+#+END_SRC
+
 *** org bullets
   
 Show nicer org bullets:
