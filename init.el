@@ -28,4 +28,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(mode-line ((t (:inherit fixed-pitch :background "#101010" :foreground "#d8d8d8" :overline "#444444" :weight bold))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "#101010" :foreground "#888888"))))
+ '(org-checkbox ((t (:box nil :foreground nil :inherit org-todo :background nil)))))
