@@ -276,7 +276,7 @@ Tell org mode where to find the org files. This is being used for the agenda and
     (setq org-agenda-files (list "~/org" "~/org/projects"))
 #+END_SRC
 
-Track state changes with timestamps and/or notes:
+Track state changes with timestamps and/or notes
 #+BEGIN_SRC emacs-lisp :tangle yes
     (setq org-log-done 'time)
 #+END_SRC
@@ -284,6 +284,11 @@ Track state changes with timestamps and/or notes:
 Make agenda view not remove my split windows
 #+BEGIN_SRC emacs-lisp :tangle yes
     (setq org-agenda-window-setup 'current-window)
+#+END_SRC
+
+Follow links with RET
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq org-return-follows-link t)
 #+END_SRC
 
 *** org bullets
