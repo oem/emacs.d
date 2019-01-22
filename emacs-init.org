@@ -158,8 +158,8 @@ Sets fonts for fixed and variable pitch:
     helm-split-window-in-side-p t
     helm-move-to-line-cycle-in-source t
     helm-echo-input-in-header-line t
-    helm-autoresize-max-height 0
-    helm-autoresize-min-height 20)
+    helm-autoresize-max-height 40
+    helm-autoresize-min-height 30)
     :config
     (helm-mode 1))
 #+END_SRC
@@ -182,8 +182,8 @@ Sets fonts for fixed and variable pitch:
     (add-hook 'helm-minibuffer-set-up-hook
 	    'oem//helm-hide-minibuffer-maybe)
 
-    (setq helm-autoresize-max-height 0)
-    (setq helm-autoresize-min-height 40)
+    (setq helm-autoresize-max-height 40)
+    (setq helm-autoresize-min-height 30)
     (helm-autoresize-mode 1)
 #+END_SRC
 
