@@ -32,8 +32,8 @@ The inbuild emacs feature to show matching paranthesis is great!
     (require 'package)
     (setq package-enable-at-startup nil)
     (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
-			    ("gnu"   . "http://elpa.gnu.org/packages/")
-			    ("melpa" . "https://melpa.org/packages/")))
+                      ("gnu"   . "http://elpa.gnu.org/packages/")
+                      ("melpa" . "https://melpa.org/packages/")))
     (package-initialize)
 #+END_SRC
 
@@ -114,8 +114,8 @@ Wrap words softly but will kill-line the whole actual line:
 Variable pitch mode will help rendering mixed fonts
 #+BEGIN_SRC emacs-lisp :tangle yes
     (add-hook 'text-mode-hook
-		(lambda ()
-		    (variable-pitch-mode 1)))
+            (lambda ()
+                (variable-pitch-mode 1)))
 #+END_SRC
 
 Sets fonts for fixed and variable pitch:
@@ -134,8 +134,8 @@ Some more line spacing makes things far more readable:
 
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package doom-modeline
-	:ensure t
-	:hook (after-init . doom-modeline-mode))
+      :ensure t
+      :hook (after-init . doom-modeline-mode))
     (setq doom-modeline-height 40)
 #+END_SRC
 
@@ -167,20 +167,20 @@ Some more line spacing makes things far more readable:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (setq helm-split-window-in-side-p t ;; open helm buffer inside current window, not occupy whole other window
 
-	helm-echo-input-in-header-line t) ;; input close to where I type
+      helm-echo-input-in-header-line t) ;; input close to where I type
 
     (defun oem//helm-hide-minibuffer-maybe ()
     "Hide minibuffer in Helm session if we use the header line as input field."
     (when (with-helm-buffer helm-echo-input-in-header-line)
-	(let ((ov (make-overlay (point-min) (point-max) nil nil t)))
-	(overlay-put ov 'window (selected-window))
-	(overlay-put ov 'face
-		    (let ((bg-color (face-background 'default nil)))
-			`(:background ,bg-color :foreground ,bg-color)))
-	(setq-local cursor-type nil))))
+      (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face
+                (let ((bg-color (face-background 'default nil)))
+                  `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
 
     (add-hook 'helm-minibuffer-set-up-hook
-	    'oem//helm-hide-minibuffer-maybe)
+          'oem//helm-hide-minibuffer-maybe)
 
     (setq helm-autoresize-max-height 40)
     (setq helm-autoresize-min-height 30)
@@ -306,14 +306,14 @@ Show nicer org bullets:
 capturing todos and links:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (setq org-capture-templates
-	'(("t" "Task" entry
-	    (file+headline "~/org/inbox.org" "Tasks")
-	    "* TODO %?\n %i\n")
-	    ("n" "Next Task" entry (file+headline "~/org/inbox.org" "Tasks")
-	    "** TODO %? \nDEADLINE: %t")
-	    ("l" "Link" plain
-	    (file+headline "~/org/inbox.org" "Bookmarks")
-	    "%?\n %i\n")))
+      '(("t" "Task" entry
+          (file+headline "~/org/inbox.org" "Tasks")
+          "* TODO %?\n %i\n")
+          ("n" "Next Task" entry (file+headline "~/org/inbox.org" "Tasks")
+          "** TODO %? \nDEADLINE: %t")
+          ("l" "Link" plain
+          (file+headline "~/org/inbox.org" "Bookmarks")
+          "%?\n %i\n")))
 #+END_SRC
 
 *** org-refile
@@ -373,12 +373,12 @@ I also like to see the changes in the gutter
 make flycheck buffer behave more like error lists would do in modern IDEs
 #+BEGIN_SRC emacs-lisp :tangle yes
     (add-to-list 'display-buffer-alist
-		`(,(rx bos "*Flycheck errors*" eos)
-		(display-buffer-reuse-window
-		display-buffer-in-side-window)
-		(side            . bottom)
-		(reusable-frames . visible)
-		(window-height   . 0.33)))
+            `(,(rx bos "*Flycheck errors*" eos)
+            (display-buffer-reuse-window
+            display-buffer-in-side-window)
+            (side            . bottom)
+            (reusable-frames . visible)
+            (window-height   . 0.33)))
 #+END_SRC
 
 show flycheck errors inline
