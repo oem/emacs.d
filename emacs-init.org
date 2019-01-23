@@ -365,6 +365,19 @@ I also like to see the changes in the gutter
     (use-package flycheck
     :ensure t
     :config
-    (global-flycheck-mode))
+    (global-flycheck-mode)
+    (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled))
+)
+#+END_SRC
+
+make flycheck buffer behave more like error lists would do in modern IDEs
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (add-to-list 'display-buffer-alist
+		`(,(rx bos "*Flycheck errors*" eos)
+		(display-buffer-reuse-window
+		display-buffer-in-side-window)
+		(side            . bottom)
+		(reusable-frames . visible)
+		(window-height   . 0.33)))
 #+END_SRC
 
