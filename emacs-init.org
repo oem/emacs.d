@@ -254,8 +254,10 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     ;; Org Mode
     "oa" '(org-agenda :which-key "org-agenda")
     "oc" '(org-capture :which-ley "org-capture")
-    ;; magit
+    ;; git with magit
     "g" '(magit :which-key "git")
+    ;; error checking with flycheck
+    "el" '(flycheck-list-errors :which-key "list errors")
     ;; Others
     "at"  '(ansi-term :which-key "open terminal")
     ))
