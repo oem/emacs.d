@@ -105,12 +105,6 @@ Setting some default frame size that acts more like a CLI buffer:
 
 ** Typography
 
-I love the Cartograph font, well worth its money. Also, some more line spacing makes things far more readable:
-#+BEGIN_SRC emacs-lisp :tangle yes
-    (add-to-list 'default-frame-alist '(font . "Cartograph Mono CF-14"))
-    (setq-default line-spacing 16)
-#+END_SRC
-
 Wrap words softly but will kill-line the whole actual line:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (global-visual-line-mode t)
@@ -129,6 +123,11 @@ Sets fonts for fixed and variable pitch:
     (set-face-attribute 'default nil :family "Cartograph Mono CF" :height 140)
     (set-face-attribute 'fixed-pitch nil :family "Cartograph Mono CF" :weight 'light :height 140)
     (set-face-attribute 'variable-pitch nil :family "Avenir Next LT Pro" :weight 'bold :height 160)
+#+END_SRC
+
+Some more line spacing makes things far more readable:
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (setq-default line-spacing 15)
 #+END_SRC
 
 ** Modeline
@@ -254,9 +253,10 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     "wx"  '(delete-window :which-key "delete window")
     ;; Org Mode
     "oa" '(org-agenda :which-key "org-agenda")
-    "oc" '(org-capture :which-ley "org-capture")
+    "oc" '(org-capture :which-key "org-capture")
+    "gl" '(evil-org-open-links :which-key "goto link")
     ;; git with magit
-    "g" '(magit :which-key "git")
+    "gg" '(magit :which-key "git")
     ;; error checking with flycheck
     "el" '(flycheck-list-errors :which-key "list errors")
     ;; Others
