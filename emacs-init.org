@@ -97,10 +97,11 @@ Setting some default frame size that acts more like a CLI buffer:
     (use-package flatui-theme
     :ensure t)
 
-    (use-package poet-theme :ensure t
-    :config (load-theme 'poet-dark-monochrome t))
+    (use-package poet-theme :ensure t)
 
-    (use-package spacemacs-theme :defer t)
+    (use-package spacemacs-theme
+      :defer t
+      :init (load-theme 'spacemacs-dark t))
 #+END_SRC
 
 ** Typography
