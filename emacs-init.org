@@ -98,7 +98,7 @@ Setting some default frame size that acts more like a CLI buffer:
     :ensure t)
 
     (use-package poet-theme :ensure t
-    :config (load-theme 'poet-monochrome t))
+    :config (load-theme 'poet-dark-monochrome t))
 
     (use-package spacemacs-theme :defer t)
 #+END_SRC
@@ -367,8 +367,7 @@ I also like to see the changes in the gutter
     :ensure t
     :config
     (global-flycheck-mode)
-    (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled))
-)
+    (setq flycheck-check-syntax-automatically '(save idle-change mode-enabled)))
 #+END_SRC
 
 make flycheck buffer behave more like error lists would do in modern IDEs
@@ -382,3 +381,11 @@ make flycheck buffer behave more like error lists would do in modern IDEs
 		(window-height   . 0.33)))
 #+END_SRC
 
+show flycheck errors inline
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package flycheck-inline
+    :ensure t
+    :config
+    (with-eval-after-load 'flycheck
+    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+#+END_SRC
