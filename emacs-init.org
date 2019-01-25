@@ -121,9 +121,9 @@ Variable pitch mode will help rendering mixed fonts
 
 Sets fonts for fixed and variable pitch:
 #+BEGIN_SRC emacs-lisp :tangle yes
-    (set-face-attribute 'default nil :family "Cartograph Mono CF" :height 140)
-    (set-face-attribute 'fixed-pitch nil :family "Cartograph Mono CF" :weight 'light :height 140)
-    (set-face-attribute 'variable-pitch nil :family "Avenir Next LT Pro" :weight 'bold :height 160)
+    (set-face-attribute 'default nil :family "IBM Plex Mono" :height 140)
+    (set-face-attribute 'fixed-pitch nil :family "IBM Plex Mono" :weight 'semi-bold :height 140)
+    (set-face-attribute 'variable-pitch nil :family "IBM Plex Sans" :weight 'semi-bold :height 160)
 #+END_SRC
 
 Some more line spacing makes things far more readable:
