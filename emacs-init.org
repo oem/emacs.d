@@ -292,6 +292,10 @@ Remove the highlight from checkboxes
     (custom-set-faces '(org-checkbox ((t (:box nil :foreground nil :inherit org-todo :background nil)))))
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package evil-org :ensure t)
+#+END_SRC
+
 *** org bullets
 
 Show nicer org bullets:
