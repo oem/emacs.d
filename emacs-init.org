@@ -121,7 +121,7 @@ Sets fonts for fixed and variable pitch:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (set-face-attribute 'default nil :family "IBM Plex Mono" :height 140)
     (set-face-attribute 'fixed-pitch nil :family "IBM Plex Mono" :weight 'semi-bold :height 140)
-    (set-face-attribute 'variable-pitch nil :family "Avenir Next LT Pro" :weight 'semi-bold :height 160)
+    (set-face-attribute 'variable-pitch nil :family "IBM Plex Serif" :height 160 :weight 'thin)
 #+END_SRC
 
 Some more line spacing makes things far more readable:
