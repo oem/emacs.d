@@ -417,6 +417,7 @@ And, like with about everything, we want it integrated in helm
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package elpy 
 :ensure t
+:init (add-hook 'python-mode-hook #'elpy-enable)
 :config
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
