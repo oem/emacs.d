@@ -44,6 +44,5 @@
  '(org-block-begin-line ((t (:inherit org-meta-line))))
  '(org-block-end-line ((t (:inherit org-block-begin-line))))
  '(org-checkbox ((t (:box nil :foreground nil :inherit org-todo :background nil))))
- '(org-level-1 ((t (:foreground "#e8e8e8" :weight thin :height 1.1))))
  '(org-level-2 ((t (:foreground "#d1d1d1" :weight thin)))))
 (put 'narrow-to-region 'disabled nil)

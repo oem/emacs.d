@@ -123,7 +123,7 @@ Variable pitch mode will help rendering mixed fonts
 Sets fonts for fixed and variable pitch:
 #+BEGIN_SRC emacs-lisp :tangle yes
     (set-face-attribute 'default nil :family "IBM Plex Mono" :height 140)
-    (set-face-attribute 'fixed-pitch nil :family "IBM Plex Mono" :weight 'regular :height 140)
+    (set-face-attribute 'fixed-pitch nil :family "IBM Plex Mono" :weight 'bold :height 150)
     (set-face-attribute 'variable-pitch nil :family "IBM Plex Mono" :height 160 :weight 'light)
 #+END_SRC
 
@@ -216,6 +216,7 @@ Some more line spacing makes things far more readable:
     :init
     (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
     (setq evil-want-keybinding nil)
+    (setq evil-want-C-i-jump nil)
     :config
     (evil-mode 1))
 #+END_SRC
