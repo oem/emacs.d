@@ -272,6 +272,8 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     "oa" '(org-agenda :which-key "org-agenda")
     "oc" '(org-capture :which-key "org-capture")
     "gl" '(evil-org-open-links :which-key "goto link")
+    ;; project management and navigation with projectile
+    "pp" '(helm-projectile-switch-project :which-key "switch to project")
     ;; git with magit
     "gg" '(magit :which-key "git")
     ;; error checking with flycheck
@@ -409,4 +411,40 @@ show flycheck errors inline
     :config
     (with-eval-after-load 'flycheck
     (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+#+END_SRC
+** Language Servers
+
+Evaluating lsp-mode for now, if that doesn't work I might give Eglot a go
+** Project Management
+
+Projectile is great to organize and switch projects
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package projectile
+    :ensure t
+    :config
+    (projectile-mode +1))
+#+END_SRC
+
+And, like with about everything, we want it integrated in helm
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package helm-projectile
+    :ensure t
+    :config
+    (helm-projectile-on))
+#+END_SRC
+** Python
+#+BEGIN_SRC emacs-lisp :tangle yes
+(use-package elpy 
+:ensure t
+:config
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
+#+END_SRC
+
+autopep8 handles autoformatting on save and correcting any PEP8 errors
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package py-autopep8
+    :ensure t
+    :config
+    (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
 #+END_SRC
