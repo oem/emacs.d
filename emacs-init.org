@@ -92,14 +92,16 @@ Setting some default frame size that acts more like a CLI buffer:
 
 #+BEGIN_SRC emacs-lisp :tangle yes
     (use-package doom-themes
-    :ensure t)
+    :defer t)
 
     (use-package flatui-theme
-    :ensure t)
+    :defer t)
 
-    (use-package poet-theme :ensure t :config (load-theme 'poet-dark-monochrome t))
+    (use-package poet-theme :defer t)
 
     (use-package spacemacs-theme :defer t)
+    
+    (use-package klere-theme :ensure t :config (load-theme 'klere t))
 #+END_SRC
 
 ** Typography
