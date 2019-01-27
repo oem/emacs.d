@@ -189,26 +189,8 @@ Some more line spacing makes things far more readable:
 ** Ripgrep integration
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-(use-package helm-ag
-:ensure t
-:init
-(custom-set-variables
- '(helm-follow-mode-persistent t))
-:config
-(custom-set-variables
- '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
- '(helm-ag-command-option "--all-text")
- '(helm-ag-insert-at-point 'symbol)
- '(helm-ag-ignore-buffer-patterns '("\\.txt\\'" "\\.mkd\\'")))
- '(helm-ag-base-command "rg --no-heading"))
-#+END_SRC
-
-#+RESULTS:
-: t
-
-I could not make helm-ag work for me well so far (too slow with sub searches and didn't open files), so I am going with deadgrep instead:
-#+BEGIN_SRC emacs-lisp :tangle yes
-    (use-package deadgrep :ensure t)
+(use-package helm-rg
+:ensure t)
 #+END_SRC
 
 * Keybinds
@@ -254,7 +236,7 @@ I could not make helm-ag work for me well so far (too slow with sub searches and
     :states '(normal visual insert emacs)
     :prefix "SPC"
     :non-normal-prefix "M-SPC"
-    "/"   '(helm-ag :which-key "ripgrep")
+    "/"   '(helm-rg :which-key "ripgrep")
     "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
     "SPC" '(helm-M-x :which-key "M-x")
     "ff"  '(helm-find-files :which-key "find files")
