@@ -35,6 +35,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-echo-common ((t (:foreground "firebrick1" :family "Cartograph Mono CF"))))
+ '(company-preview ((t (:background "blue4" :foreground "wheat" :family "IBM Plex Mono"))))
+ '(company-tooltip ((t (:background "yellow" :foreground "black" :weight semi-bold :family "IBM Plex Mono"))))
  '(mode-line ((t (:inherit fixed-pitch :background "#101010" :foreground "#d8d8d8" :overline "#444444" :weight bold))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#101010" :foreground "#888888"))))
  '(org-checkbox ((t (:box nil :foreground nil :inherit org-todo :background nil)))))
