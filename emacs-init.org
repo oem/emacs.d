@@ -419,18 +419,23 @@ And, like with about everything, we want it integrated in helm
 The elpy packages includes various improvements to make python development pleasant in emacs
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package elpy 
-:ensure t
-:init (add-hook 'python-mode-hook #'elpy-enable)
-:config
+    :ensure t
+    :init (add-hook 'python-mode-hook #'elpy-enable)
+    :config
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
 #+END_SRC
 
 autopep8 handles autoformatting on save and correcting any PEP8 errors
 #+BEGIN_SRC emacs-lisp :tangle yes
-    (use-package py-autopep8
+(use-package py-autopep8
     :ensure t
     :config
     (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+#+END_SRC
+
+We would have problems with org mode indentation clashing with the python mode indentation. This fixes the problem.
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq-default indent-tabs-mode nil)
 #+END_SRC
 
