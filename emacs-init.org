@@ -413,7 +413,10 @@ And, like with about everything, we want it integrated in helm
     :config
     (helm-projectile-on))
 #+END_SRC
+
 ** Python
+   
+The elpy packages includes various improvements to make python development pleasant in emacs
 #+BEGIN_SRC emacs-lisp :tangle yes
 (use-package elpy 
 :ensure t
@@ -430,3 +433,4 @@ autopep8 handles autoformatting on save and correcting any PEP8 errors
     :config
     (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
 #+END_SRC
+
