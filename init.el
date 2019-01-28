@@ -34,7 +34,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-echo-common ((t (:foreground "firebrick1" :family "Cartograph Mono CF"))))
+ '(company-echo-common ((t (:foreground "firebrick1"))))
  '(company-preview ((t (:background "blue4" :foreground "wheat" :family "IBM Plex Mono"))))
  '(company-tooltip ((t (:background "yellow" :foreground "black" :weight semi-bold :family "IBM Plex Mono"))))
  '(font-lock-constant-face ((t (:foreground "#00d1e0" :weight semi-bold :family "IBM Plex Mono"))))
