@@ -257,6 +257,8 @@ Some more line spacing makes things far more readable:
     "oa" '(org-agenda :which-key "org-agenda")
     "oc" '(org-capture :which-key "org-capture")
     "gl" '(evil-org-open-links :which-key "goto link")
+    "on" '(org-narrow-to-subtree :which-key "org narrow")
+    "ow" '(widen :which-key "org widen")
     ;; project management and navigation with projectile
     "pp" '(helm-projectile-switch-project :which-key "switch to project")
     ;; git with magit
