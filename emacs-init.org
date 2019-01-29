@@ -419,14 +419,6 @@ make flycheck buffer behave more like error lists would do in modern IDEs
             (window-height   . 0.28)))
 #+END_SRC
 
-show flycheck errors inline
-#+BEGIN_SRC emacs-lisp :tangle yes
-    (use-package flycheck-inline
-    :ensure t
-    :config
-    (with-eval-after-load 'flycheck
-    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
-#+END_SRC
 ** Language Servers
 
 Evaluating lsp-mode for now, if that doesn't work I might give Eglot a go
