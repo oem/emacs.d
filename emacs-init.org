@@ -272,7 +272,7 @@ Some more line spacing makes things far more readable:
 
 Tell org mode where to find the org files. This is being used for the agenda and refiling.
 #+BEGIN_SRC emacs-lisp :tangle yes
-    (setq org-agenda-files (list "~/org" "~/org/projects"))
+  (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
 #+END_SRC
 
 Track state changes with timestamps and/or notes
