@@ -473,3 +473,20 @@ We would have problems with org mode indentation clashing with the python mode i
 (setq-default indent-tabs-mode nil)
 #+END_SRC
 
+*** ipython
+#+BEGIN_SRC emacs-lisp :tangle yes
+    (use-package ob-ipython :ensure t)
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((ipython . t)
+     ;; other languages..
+     ))
+#+END_SRC
+** api blueprint
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package apib-mode
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode)))
+#+END_SRC
