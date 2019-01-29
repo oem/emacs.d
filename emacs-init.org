@@ -301,6 +301,12 @@ Remove the highlight from checkboxes
     (use-package evil-org :ensure t)
 #+END_SRC
 
+show images in smaller size
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq org-image-actual-width nil)
+  (setq org-startup-with-inline-images "inlineimages")
+#+END_SRC
+
 *** org bullets
 
 Show nicer org bullets:
