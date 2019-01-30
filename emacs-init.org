@@ -8,22 +8,27 @@ This file is tangled using =org-babel-load-file=. It generates
 
 * Sane Defaults
 
-I personally don't need backups and find them quite cluttery.
-#+BEGIN_SRC emacs-lisp :tangle yes
+  I personally don't need backups and find them quite cluttery.
+  #+BEGIN_SRC emacs-lisp :tangle yes
     (setq make-backup-files nil) ; stop creating backup~ files
     (setq auto-save-default nil) ; stop creating #autosave# files
-#+END_SRC
+  #+END_SRC
 
-Disable the startup screen.
-#+BEGIN_SRC emacs-lisp :tangle yes
+  Disable the startup screen.
+  #+BEGIN_SRC emacs-lisp :tangle yes
     (setq inhibit-startup-screen t)
-#+END_SRC
+  #+END_SRC
 
-The inbuild emacs feature to show matching paranthesis is great!
-#+BEGIN_SRC emacs-lisp :tangle yes
+  The inbuild emacs feature to show matching paranthesis is great!
+  #+BEGIN_SRC emacs-lisp :tangle yes
     (setq show-paren-delay 0)
     (show-paren-mode 1)
-#+END_SRC
+  #+END_SRC
+
+  change all prompts to y or n
+  #+BEGIN_SRC emacs-lisp :tangle yes
+    (fset 'yes-or-no-p 'y-or-n-p)
+  #+END_SRC
 
 * Package Manager
 ** Sources
