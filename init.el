@@ -39,6 +39,8 @@
  '(company-preview ((t (:background "blue4" :foreground "wheat" :family "IBM Plex Mono"))))
  '(company-tooltip ((t (:background "yellow" :foreground "black" :weight semi-bold :family "IBM Plex Mono"))))
  '(font-lock-constant-face ((t (:foreground "#00d1e0" :weight semi-bold :family "IBM Plex Mono"))))
+ '(font-lock-doc-face ((t (:inherit font-lock-string-face :foreground "#fe8274" :weight semi-bold))))
+ '(font-lock-keyword-face ((t (:inherit fixed-pitch :foreground "#0087b2"))))
  '(mode-line ((t (:inherit fixed-pitch :background "#101010" :foreground "#d8d8d8" :overline "#444444" :weight bold))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#101010" :foreground "#888888"))))
  '(org-block ((t (:inherit fixed-pitch :background "#161616" :foreground "#d1d1d1"))))

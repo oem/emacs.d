@@ -492,3 +492,13 @@ We would have problems with org mode indentation clashing with the python mode i
     :config
     (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode)))
 #+END_SRC
+** markdown
+#+BEGIN_SRC emacs-lisp :tangle true
+  (use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+           ("\\.md\\'" . markdown-mode)
+           ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "multimarkdown"))
+#+END_SRC
