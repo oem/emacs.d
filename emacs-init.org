@@ -312,6 +312,11 @@ show images in smaller size
   (setq org-startup-with-inline-images "inlineimages")
 #+END_SRC
 
+turn off confirmation for code block execution
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (setq org-confirm-babel-evaluate nil)
+#+END_SRC
+
 *** org bullets
 
 Show nicer org bullets:
