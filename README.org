@@ -1,0 +1,10 @@
+* My Emacs Configuration
+** installing emacs
+   (on a mac) I installed it via homebew, but not the standard =brew cask install emacs=. The problem with that version was missing imagemagick support and it didn't behave well as a mac app (wasn't possible to resize the window via native controls).
+
+   I instead used =brew tap railwaycat/emacsmacport= and then =brew cask install emacs-mac=.
+
+** emacs configuration
+   It should be pretty simple to set up this configuration, just clone this repo into =~/.emacs.d=.
+   
+   The [[file:./emacs-init.org]] is an org file describing the settings more or less.
