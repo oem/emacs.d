@@ -34,12 +34,12 @@ This file is tangled using =org-babel-load-file=. It generates
 ** Sources
 
 #+BEGIN_SRC emacs-lisp :tangle yes
-    (require 'package)
-    (setq package-enable-at-startup nil)
-    (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
-                      ("gnu"   . "http://elpa.gnu.org/packages/")
-                      ("melpa" . "https://melpa.org/packages/")))
-    (package-initialize)
+  (require 'package)
+  (setq package-enable-at-startup nil)
+  (setq package-archives '(("org"   . "http://orgmode.org/elpa/")
+                    ("gnu"   . "http://elpa.gnu.org/packages/")
+                    ("melpa" . "https://melpa.org/packages/")))
+  (package-initialize)
 #+END_SRC
 
 ** Bootstrapping
@@ -457,6 +457,13 @@ And, like with about everything, we want it integrated in helm
 #+END_SRC
 
 ** Python
+*** pyenv
+    #+BEGIN_SRC emacs-lisp :tangle yes
+      (use-package pyenv-mode
+      :ensure t
+      :config
+      (pyenv-mode))
+    #+END_SRC
    
 The elpy packages includes various improvements to make python development pleasant in emacs
 #+BEGIN_SRC emacs-lisp :tangle yes
@@ -483,11 +490,13 @@ We would have problems with org mode indentation clashing with the python mode i
 
 *** ipython
 #+BEGIN_SRC emacs-lisp :tangle yes
-    (use-package ob-ipython :ensure t)
+  (use-package ob-ipython :ensure t)
 
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((ipython . t)
+   '(
+     (ipython . t)
+     (shell . t)  
      ;; other languages..
      ))
 #+END_SRC
