@@ -30,7 +30,7 @@
  '(helm-follow-mode-persistent t)
  '(package-selected-packages
    (quote
-    (klere-theme forest-blue-theme tao-theme helm-rg elpy color-theme-modern github-modern-theme ample-theme cyberpunk-theme flycheck-apib flycheck magit exec-path-from-shell which-key evil use-package))))
+    (ethan-wspace klere-theme forest-blue-theme tao-theme helm-rg elpy color-theme-modern github-modern-theme ample-theme cyberpunk-theme flycheck-apib flycheck magit exec-path-from-shell which-key evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
