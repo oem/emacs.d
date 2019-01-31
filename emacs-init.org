@@ -106,7 +106,7 @@ Setting some default frame size that acts more like a CLI buffer:
     (load-theme 'poet-dark-monochrome t))
 
     (use-package spacemacs-theme :defer t)
-    
+
     (use-package klere-theme :defer t)
 #+END_SRC
 
@@ -424,7 +424,7 @@ I also like to see the changes in the gutter
     #+BEGIN_SRC emacs-lisp :tangle yes
       (use-package company-tabnine :ensure t)
     #+END_SRC
-    
+
 *** Additional backends
     #+BEGIN_SRC emacs-lisp :tangle yes
       (add-to-list 'company-backends 'company-ob-ipython)
@@ -480,56 +480,58 @@ And, like with about everything, we want it integrated in helm
       :config
       (pyenv-mode))
     #+END_SRC
-   
-The elpy packages includes various improvements to make python development pleasant in emacs
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package elpy 
-    :ensure t
-    :init (add-hook 'python-mode-hook #'elpy-enable)
-    :config
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    (add-hook 'elpy-mode-hook 'flycheck-mode))
-#+END_SRC
 
-autopep8 handles autoformatting on save and correcting any PEP8 errors
-#+BEGIN_SRC emacs-lisp :tangle yes
-(use-package py-autopep8
-    :ensure t
-    :config
-    (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
-#+END_SRC
+    The elpy packages includes various improvements to make python development pleasant in emacs
+    #+BEGIN_SRC emacs-lisp :tangle yes
+      (use-package elpy
+          :ensure t
+          :init (add-hook 'python-mode-hook #'elpy-enable)
+          :config
+          (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+          (add-hook 'elpy-mode-hook 'flycheck-mode))
+    #+END_SRC
 
-We would have problems with org mode indentation clashing with the python mode indentation. This fixes the problem.
-#+BEGIN_SRC emacs-lisp :tangle yes
-(setq-default indent-tabs-mode nil)
-#+END_SRC
+    autopep8 handles autoformatting on save and correcting any PEP8 errors
+    #+BEGIN_SRC emacs-lisp :tangle yes
+      (use-package py-autopep8
+          :ensure t
+          :config
+          (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+    #+END_SRC
+
+    We would have problems with org mode indentation clashing with the python mode indentation. This fixes the problem.
+    #+BEGIN_SRC emacs-lisp :tangle yes
+      (setq-default indent-tabs-mode nil)
+    #+END_SRC
 
 *** ipython
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package ob-ipython :ensure t)
+    #+BEGIN_SRC emacs-lisp :tangle yes
+      (use-package ob-ipython :ensure t)
 
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-     (ipython . t)
-     (shell . t)  
-     ;; other languages..
-     ))
-#+END_SRC
+      (org-babel-do-load-languages
+       'org-babel-load-languages
+       '(
+         (ipython . t)
+         (shell . t)
+         ;; other languages..
+         ))
+    #+END_SRC
+
 ** api blueprint
-#+BEGIN_SRC emacs-lisp :tangle yes
-  (use-package apib-mode
-    :ensure t
-    :config
-    (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode)))
-#+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle yes
+     (use-package apib-mode
+       :ensure t
+       :config
+       (add-to-list 'auto-mode-alist '("\\.apib\\'" . apib-mode)))
+   #+END_SRC
+
 ** markdown
-#+BEGIN_SRC emacs-lisp :tangle true
-  (use-package markdown-mode
-    :ensure t
-    :commands (markdown-mode gfm-mode)
-    :mode (("README\\.md\\'" . gfm-mode)
-           ("\\.md\\'" . markdown-mode)
-           ("\\.markdown\\'" . markdown-mode))
-    :init (setq markdown-command "multimarkdown"))
-#+END_SRC
+   #+BEGIN_SRC emacs-lisp :tangle true
+     (use-package markdown-mode
+       :ensure t
+       :commands (markdown-mode gfm-mode)
+       :mode (("README\\.md\\'" . gfm-mode)
+              ("\\.md\\'" . markdown-mode)
+              ("\\.markdown\\'" . markdown-mode))
+       :init (setq markdown-command "multimarkdown"))
+   #+END_SRC
