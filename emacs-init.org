@@ -333,6 +333,15 @@ turn off confirmation for code block execution
   (setq org-confirm-babel-evaluate nil)
 #+END_SRC
 
+make  code blocks prettier
+#+BEGIN_SRC emacs-lisp :tangle yes
+(setq org-edit-src-content-indentation 0
+      org-src-tab-acts-natively t
+      org-src-fontify-natively t
+      org-confirm-babel-evaluate nil
+      org-support-shift-select 'always)
+#+END_SRC
+
 *** org bullets
 
 Show nicer org bullets:
@@ -452,6 +461,14 @@ I also like to see the changes in the gutter
              (window-height   . 0.28)))
    #+END_SRC
 
+   adds flycheck color mode line to highlight the modeline depending on what flycheck says
+#+BEGIN_SRC emacs-lisp :tangle yes
+  (use-package flycheck-color-mode-line
+    :ensure t
+    :config
+    (add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+#+END_SRC
+
 ** Language Servers
 
 Evaluating lsp-mode for now, if that doesn't work I might give Eglot a go
@@ -492,14 +509,6 @@ And, like with about everything, we want it integrated in helm
           (add-hook 'elpy-mode-hook 'flycheck-mode))
     #+END_SRC
 
-    autopep8 handles autoformatting on save and correcting any PEP8 errors
-    #+BEGIN_SRC emacs-lisp :tangle yes
-      (use-package py-autopep8
-          :ensure t
-          :config
-          (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
-    #+END_SRC
-
     We would have problems with org mode indentation clashing with the python mode indentation. This fixes the problem.
     #+BEGIN_SRC emacs-lisp :tangle yes
       (setq-default indent-tabs-mode nil)
@@ -530,6 +539,7 @@ And, like with about everything, we want it integrated in helm
     (setq jedi:complete-on-dot t)
     (add-hook 'python-mode-hook 'jedi:setup))
 #+END_SRC
+
 ** api blueprint
    #+BEGIN_SRC emacs-lisp :tangle yes
      (use-package apib-mode

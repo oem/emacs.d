@@ -28,9 +28,12 @@
  '(helm-ag-ignore-buffer-patterns (quote ("\\.txt\\'" "\\.mkd\\'")))
  '(helm-ag-insert-at-point (quote symbol))
  '(helm-follow-mode-persistent t)
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-rmail org-w3m org-drill)))
  '(package-selected-packages
    (quote
-    (ethan-wspace klere-theme forest-blue-theme tao-theme helm-rg elpy color-theme-modern github-modern-theme ample-theme cyberpunk-theme flycheck-apib flycheck magit exec-path-from-shell which-key evil use-package))))
+    (blacken ethan-wspace klere-theme forest-blue-theme tao-theme helm-rg elpy color-theme-modern github-modern-theme ample-theme cyberpunk-theme flycheck-apib flycheck magit exec-path-from-shell which-key evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
